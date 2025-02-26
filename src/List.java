@@ -19,8 +19,8 @@ public class List<T> {
     }
 
     public void add(T item){
-        LinkNode<T> link = new LinkNode<T>(item, this.length);
         if(this.firstLink == null){
+            LinkNode<T> link = new LinkNode<T>(item, this.length, null);
             this.firstLink = link;
             this.length++;
             return;
@@ -30,7 +30,27 @@ public class List<T> {
         while(currNode.getNext() != null){
             currNode = currNode.getNext();
         }
+        LinkNode<T> link = new LinkNode<T>(item, length, currNode);
         currNode.setNext(link);
         this.length++;
+    }
+
+    public void remove(int index){
+        LinkNode<T> node = firstLink;
+        for(int i = 0; i<this.length; i++){
+            if(node.getIndex() == index){
+                node.getPrev().setNext(node.getNext());
+                node.getNext().setPrev(node.getPrev());
+            }
+            if(i > index){
+                node.setIndex(node.getIndex()-1);
+            }
+            node = node.getNext();
+        }
+        this.length--;
+    }
+
+    public int length(){
+        return this.length;
     }
 }
