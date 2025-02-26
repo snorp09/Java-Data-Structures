@@ -25,7 +25,7 @@ public class Stack<T> {
         return outGoing;
     }
 
-    public T peak(){
+    public T peek(){
         return this.stackData[top];
     }
 
