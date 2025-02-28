@@ -35,6 +35,25 @@ public class List<T> {
         this.length++;
     }
 
+    public void add(int index, T data){
+        LinkNode<T> newNode = new LinkNode<T>(data, index, null);
+        LinkNode<T> node = firstLink;
+        for(int i = 0; i<this.length+1; i++){
+            if(i > index){
+                node.setIndex(node.getIndex()+1);
+            }
+            if(node.getIndex() == index){
+                newNode.setNext(node);
+                node.getPrev().setNext(newNode);
+                newNode.setPrev(node.getPrev());
+                node.setPrev(newNode);
+                node = newNode;
+            }
+            node = node.getNext();
+        }
+        this.length++;
+    }
+
     public void remove(int index){
         LinkNode<T> node = firstLink;
         for(int i = 0; i<this.length; i++){
