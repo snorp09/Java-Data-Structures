@@ -14,5 +14,8 @@ public class App {
         tree.add(48);
         tree.add(5);
         System.out.println("Gemma.");
+
+        BinaryTreeNode<Integer> x = tree.getNode(28);
+        System.out.println("X value: " + x.getValue());
     }
 }

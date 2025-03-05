@@ -36,6 +36,25 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
             }
         }
     }
+
+    public BinaryTreeNode<T> getNode(T value){
+        BinaryTreeNode<T> current = root;
+        while(current != null){
+            int compareVal = current.getValue().compareTo(value);
+            if(compareVal == 0){
+                return current;
+            }
+            if(compareVal > 0){
+                current = current.getLeft();
+            }
+            if(compareVal < 0){
+                current = current.getRight();
+            }
+        }
+        throw new NodeNotFoundException();
+    }
 }
 
 class DuplicateNodeException extends RuntimeException {}
+
+class NodeNotFoundException extends RuntimeException {}
