@@ -1,3 +1,15 @@
+/*
+ * Notes about Binary Trees
+ * Binary Trees are good for performing searches.
+ * Three types of searching these trees are:
+ * Pre-Order Top to Left to Right.
+ * In-Order, think of this as left to right reading.
+ * Post-order Left to Right, bottom to top.
+ * 
+ * In a binary search tree, Right is greater than Left in comparison to branches above.
+ * No duplicates are allowed.
+ */
+
 public class BinarySearchTree<T extends Comparable<? super T>> {
     private BinaryTreeNode<T> root;
 
