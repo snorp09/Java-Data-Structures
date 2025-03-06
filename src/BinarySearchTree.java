@@ -10,6 +10,12 @@
  * No duplicates are allowed.
  */
 
+enum SEARCH_TYPE{
+    PREORDER,
+    INORDER,
+    POSTORDER;
+}
+
 public class BinarySearchTree<T extends Comparable<? super T>> {
     private BinaryTreeNode<T> root;
 
@@ -64,6 +70,71 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
             }
         }
         throw new NodeNotFoundException();
+    }
+
+    public BinaryTreeNode<T> getPreOrder(T value){
+        BinaryTreeNode<T> current = root;
+        while(current != null){
+            int compareVal = current.getValue().compareTo(value);
+            if(compareVal == 0){
+                return current;
+            }
+            if(compareVal > 0){
+                current = current.getLeft();
+            }
+            if(compareVal < 0){
+                current = current.getRight();
+            }
+        }
+        throw new NodeNotFoundException();
+    }
+
+    public Boolean contains(T value){
+        BinaryTreeNode<T> current = root;
+        while(current != null){
+            int compareVal = current.getValue().compareTo(value);
+            if(compareVal == 0){
+                return true;
+            }
+            if(compareVal > 0){
+                current = current.getLeft();
+            }
+            if(compareVal < 0){
+                current = current.getRight();
+            }
+        }
+        throw new NodeNotFoundException();
+    }
+
+    public BinaryTreeNode<T> getParentNode(T value){
+        BinaryTreeNode<T> parent = null;
+        BinaryTreeNode<T> current = root;
+        while(current != null){
+            int compareVal = current.getValue().compareTo(value);
+            if(compareVal == 0){
+                return parent;
+            }
+            parent = current;
+            if(compareVal > 0){
+                current = current.getLeft();
+            }
+            if(compareVal < 0){
+                current = current.getRight();
+            }
+        }
+        throw new NodeNotFoundException();
+    }
+
+    // Remove and replace with the branch from the *right*.
+    public void removeNode(T value){
+        BinaryTreeNode<T> removeNode = getNode(value);
+        BinaryTreeNode<T> parent = getParentNode(value);
+        if(removeNode.getValue() == parent.getLeft().getValue()){
+            parent.setLeft(removeNode.getLeft());
+        }
+        if(removeNode.getValue() == parent.getRight().getValue()){
+            parent.setRight(removeNode.getRight());
+        }
     }
 }
 

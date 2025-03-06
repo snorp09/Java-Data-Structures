@@ -13,9 +13,11 @@ public class App {
         tree.add(38);
         tree.add(48);
         tree.add(5);
-        System.out.println("Gemma.");
 
-        BinaryTreeNode<Integer> x = tree.getNode(28);
+        BinaryTreeNode<Integer> x = tree.getNode(25);
+        System.out.println("X value: " + x.getValue());
+
+        tree.removeNode(10);
         System.out.println("X value: " + x.getValue());
     }
 }
