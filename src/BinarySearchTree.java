@@ -128,12 +128,11 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
     // Remove and replace with the branch from the *right*.
     public void removeNode(T value){
         BinaryTreeNode<T> removeNode = getNode(value);
-        BinaryTreeNode<T> parent = getParentNode(value);
-        if(removeNode.getValue() == parent.getLeft().getValue()){
-            parent.setLeft(removeNode.getLeft());
-        }
-        if(removeNode.getValue() == parent.getRight().getValue()){
-            parent.setRight(removeNode.getRight());
+        while (removeNode != null) {
+            BinaryTreeNode<T> leftNode = removeNode.getLeft();
+            removeNode.setValue(leftNode.getValue());
+            removeNode.setLeft(leftNode.getLeft());
+            removeNode = removeNode.getLeft();
         }
     }
 }
