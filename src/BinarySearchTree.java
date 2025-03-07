@@ -10,23 +10,32 @@
  * No duplicates are allowed.
  */
 
-enum SEARCH_TYPE{
-    PREORDER,
-    INORDER,
-    POSTORDER;
-}
 
 public class BinarySearchTree<T extends Comparable<? super T>> {
+
+    enum SearchType{
+        PREORDER,
+        INORDER,
+        POSTORDER;
+    }
+
     private BinaryTreeNode<T> root;
 
+    // Initialize with no root value.
     public BinarySearchTree() {
         root = null;
     }
 
+    // Initialize with a starting value.
     public BinarySearchTree(T value) {
         root = new BinaryTreeNode<>(value);
     }
 
+    
+    /*
+     * Void Method
+     * Adds a node to the tree, at the proper location. Sets to root if root doesn't already exist.
+     */
     public void add(T newData){
         if(root == null){
             this.root = new BinaryTreeNode<>(newData);
@@ -55,39 +64,60 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         }
     }
 
+    /*
+     * BinaryTreeNode<T> Method
+     * We default to a Pre-Order search, as such this method calls getPreOrder() directly and just returns the result.
+     */
     public BinaryTreeNode<T> getNode(T value){
-        BinaryTreeNode<T> current = root;
-        while(current != null){
-            int compareVal = current.getValue().compareTo(value);
-            if(compareVal == 0){
-                return current;
-            }
-            if(compareVal > 0){
-                current = current.getLeft();
-            }
-            if(compareVal < 0){
-                current = current.getRight();
-            }
-        }
-        throw new NodeNotFoundException();
+        return getPreOrder(value);
     }
 
-    public BinaryTreeNode<T> getPreOrder(T value){
-        BinaryTreeNode<T> current = root;
-        while(current != null){
-            int compareVal = current.getValue().compareTo(value);
-            if(compareVal == 0){
-                return current;
-            }
-            if(compareVal > 0){
-                current = current.getLeft();
-            }
-            if(compareVal < 0){
-                current = current.getRight();
-            }
+    public BinaryTreeNode<T> getNode(T value, SearchType searchType){
+        switch (searchType) {
+            case PREORDER:
+                return getPreOrder(value);
+            case INORDER:
+                return getInOrder(value);
+            case POSTORDER:
+                return getPostOrder(value);
+            default:
+                return null; // Really, really shouldn't ever happen.
         }
-        throw new NodeNotFoundException();
     }
+
+    /*
+     *         BinaryTreeNode<T> child = null;
+        while(parent != null){
+            child = parent;
+            while(child != null){
+                if(child.getLeft() == null && child.getRight() != null){
+                    child = parent.getRight();
+                }
+                System.out.println(child.getValue());
+                child = child.getLeft();
+            }
+            parent = parent.getRight();
+     */
+    
+    //Debug: (11) root->left->left-right-left
+    /*
+     * If the parent's value isn't the value we're looking for, check the left nodes until we hit null.
+     * If we still haven't hit the value, go and check each right node, doing the same left node check each time.
+     */
+    public  BinaryTreeNode<T> getPreOrder(T value){
+        throw new UnsupportedOperationException();
+    }
+
+    public BinaryTreeNode<T> getInOrder(T value){
+        BinaryTreeNode<T> parent = root;
+        throw new UnsupportedOperationException();
+    }
+
+    public BinaryTreeNode<T> getPostOrder(T value){
+        BinaryTreeNode<T> parent = root;
+        throw new UnsupportedOperationException();
+    }
+
 
     public Boolean contains(T value){
         BinaryTreeNode<T> current = root;
@@ -136,6 +166,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         }
     }
 }
+
 
 class DuplicateNodeException extends RuntimeException {}
 
