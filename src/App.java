@@ -13,8 +13,10 @@ public class App {
         tree.add(38);
         tree.add(48);
         tree.add(5);
+        tree.add(15);
+        tree.add(11);
 
-        BinaryTreeNode<Integer> x = tree.getNode(25);
+        BinaryTreeNode<Integer> x = tree.getNode(11);
         System.out.println("X value: " + x.getValue());
 
         tree.removeNode(10);
