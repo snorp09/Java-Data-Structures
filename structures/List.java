@@ -79,7 +79,6 @@ public class List<T> {
         strList.add("Test2");
         strList.add("Test4");
         strList.add("Test8");
-        LinkNode<String> x;
         for(int i = 0; i<strList.length(); i++){
             System.out.println(strList.get(i));
         }
