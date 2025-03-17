@@ -116,7 +116,7 @@ In most languages, the switch statement is setup like the following:
   switch(conditional){
     case true:
         trueMethod();
-        break // Breaks are required in most languages, to not flow into the next case.
+        break; // Breaks are required in most languages, to not flow into the next case.
     case false:
         falseMethod();
         break;
