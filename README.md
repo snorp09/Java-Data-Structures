@@ -33,13 +33,24 @@ Binary Search Trees are a data structure optimized for data retrieval. The patte
 
          10
 
-    5           15items
+    5           15
+
+  2   7      12    18
+
+Notice that 7 is still smaller than 10, and 12 is still greater than 10, while still being left and right respectively.
+
+This pattern results in an optimized search pattern, in which in a log2(n) where n is the number of levels, number of node accesses required to find your data.
+
+This is done via simple comparison. If x > root, go right, x < root, go left.
+
+The downside that when putting data into a binary search tree, it must already be sorted to make sure that it is placed into the proper nodes.
+
 When removing from a Binary Search Tree, Left-sided Nodes replace the root node.
 
 The statistics for a Binary Search Tree:
 A properly sorted Binary Search Tree has an Access, Search, Insertion, and Deletion time of O(log(n)).
 
-The biggest downside to the Binary Search Tree is the need for data to be sorted prior to insertion into the tree. This means that the real performance of the Binary Search Tree will be relative to your ability to sort the incoming dat.
+The biggest downside to the Binary Search Tree is the need for data to be sorted prior to insertion into the tree. This means that the real performance of the Binary Search Tree will be relative to your ability to sort the incoming data.
 
 ## Stacks / Queue
 Stacks are a simple data structure type. Stacks are commonly implemented using Arrays.
