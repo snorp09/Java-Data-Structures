@@ -30,13 +30,13 @@ The statistics for the Doubly-Linked List are the same as the statistics for the
 
 ## Binary Search Trees
 Binary Search Trees are a data structure optimized for data retrieval. The pattern is as follows: In a Binary Tree, each node has two potential references to other nodes. A Left, and a Right, branch. The branches should be organized as left branch nodes have smaller values, and right branch nodes have higher values. Each node inserted, should follow this rule, from the prior node. I.E.
-
+```
          10
 
     5           15
 
   2   7      12    18
-
+```
 Notice that 7 is still smaller than 10, and 12 is still greater than 10, while still being left and right respectively.
 
 This pattern results in an optimized search pattern, in which in a log2(n) where n is the number of levels, number of node accesses required to find your data.
@@ -132,11 +132,11 @@ Classes are the blueprint of an object to be initialized later.
 In general, classes are best used for grouping of related utility code, and for Object Oriented Programming.
 
 ### OOP in Five Lines
--Object Oriented Programming is the concept of declaring code that represents an object. An Object can extend an other object to add more functionality to a super class. (The extending object is called a subclass). This is also called Polymorphism.
--Methods in the object should be related to the actions and requirements of said object.
--All data in an object should be private, with getter and setter methods to retrieve and set the private data.
--Abstract Classes and Interfaces are a way to have classes conform to an expected set of behavior or methods defined within the Abstract Class or Interface.
--In general, a good OOP pattern looks like: Data Class -> Manager Class -> Test Class.
+- Object Oriented Programming is the concept of declaring code that represents an object. An Object can extend an other object to add more functionality to a super class. (The extending object is called a subclass). This is also called Polymorphism.
+- Methods in the object should be related to the actions and requirements of said object.
+- All data in an object should be private, with getter and setter methods to retrieve and set the private data.
+- Abstract Classes and Interfaces are a way to have classes conform to an expected set of behavior or methods defined within the Abstract Class or Interface.
+- In general, a good OOP pattern looks like: Data Class -> Manager Class -> Test Class.
 
 ### Overriding
 In OOP, when extending an object, it is expected that you will "override" methods from the super class, with your own logic.
