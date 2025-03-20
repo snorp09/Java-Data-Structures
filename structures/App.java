@@ -1,5 +1,5 @@
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         BinarySearchTree<Integer> tree = new BinarySearchTree<>();
         tree.add(25);
         tree.add(20);
@@ -16,10 +16,7 @@ public class App {
         tree.add(15);
         tree.add(11);
 
-        BinaryTreeNode<Integer> x = tree.getNode(11);
-        System.out.println("X value: " + x.getValue());
-
-        tree.removeNode(10);
-        System.out.println("X value: " + x.getValue());
+        Integer x = tree.get(11);
+        System.out.println("X value: " + x);
     }
 }
