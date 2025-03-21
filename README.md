@@ -5,6 +5,7 @@
 Arrays are the most primitive type of data structure, as arrays simply are a block of memory, indexed.
 The down side to an array, is that the size of the data must be known at compile time. Arrays are not runtime resizable without a copy and replace procedure.
 
+### Statistics
 Arrays have the following statistics:
 Accessing is in constant time O(1)
 Searching, Insertion, and Deletion all have O(n) time.
@@ -16,6 +17,7 @@ We're at the end of the chain, the reference should be null, as there is no more
 
 Linked Lists are best used in a situation where there is lots of data insertion, and data movement, such as inserting at an index, or removing.
 
+### Statistics
 Linked Lists have the following statistics:
 Accessing Data in a linked list runs in linear time, O(n), due to the need to go through each node to check their value.
 
@@ -47,6 +49,7 @@ The downside that when putting data into a binary search tree, it must already b
 
 When removing from a Binary Search Tree, Left-sided Nodes replace the root node.
 
+### Statistics
 The statistics for a Binary Search Tree:
 A properly sorted Binary Search Tree has an Access, Search, Insertion, and Deletion time of O(log(n)).
 
@@ -60,6 +63,7 @@ Adding Data to a stack is called pushing. Once you've pushed, you can only acces
 
 Queues are similar to a stack, except they function in FIFO, or the first item added, is the first item out, but you cannot access any later added data until you take out the first.
 
+### Statistics
 Stack/Queue Statistics:
 Accessing, and searching for data is an O(n) operation, as you'll need to pop each data in the structures until you find the one that you need.
 
@@ -70,6 +74,7 @@ There are many sorting Algorithms that are available. Within this repository, yo
 
 In general, the rule of thumb is a good sorting algorithms has as few statements, and as few loops, as possible.
 
+### Statistics
 When looking at Algorithms, you should try and target algorithms with O(1), O(logn), and depending upon the use case, O(n), which is linear time. (Takes as long as N number of items. Should only be used in small collections.)
 
 ## While Loops
